@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vishal | GenAI Vibe Coder</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family:Segoe UI,monospace;
+  background:black;
+  color:#00ff9c;
+  overflow-x:hidden;
+}
+header{
+  position:sticky;
+  top:0;
+  background:rgba(0,0,0,0.7);
+  backdrop-filter:blur(10px);
+  padding:15px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:10;
+}
+nav a{
+  color:#00ff9c;
+  text-decoration:none;
+  margin:0 15px;
+  font-weight:bold;
+}
+nav a:hover{color:white}
+.section{
+  padding:80px 20px;
+  text-align:center;
+}
+.card{
+  background:rgba(0,0,0,0.6);
+  border:1px solid #00ff9c;
+  border-radius:15px;
+  padding:25px;
+  margin:15px;
+  box-shadow:0 0 20px #00ff9c55;
+}
+.cards{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+iframe{
+  width:90%;
+  height:600px;
+  border-radius:15px;
+  border:0;
+}
+footer{
+  background:black;
+  padding:20px;
+  text-align:center;
+  border-top:1px solid #00ff9c;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MATRIX BACKGROUND -->
+<canvas id="matrix"></canvas>
+
+<header>
+  <h2>Vishal</h2>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <h1>GenAI Vibe Coder & Freelancer</h1>
+
+  <p>I am a freelancer specializing in full-stack web development, UI/UX design, and scalable digital solutions.</p>
+
+  <p>GenAI vibe coder blending creativity, automation, and intelligent systems to build futuristic web experiences.</p>
+
+  <p>Skilled in modifying code across 16 programming languages, with deep expertise in Python.</p>
+
+  <p>Capable of explaining any code in 30 different human languages.</p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+  <h2>Skills</h2>
+  <div class="cards">
+    <div class="card">Python</div>
+    <div class="card">Flask</div>
+    <div class="card">JavaScript</div>
+    <div class="card">HTML</div>
+    <div class="card">CSS</div>
+    <div class="card">AI & Automation</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <h2>Projects</h2>
+  <div class="cards">
+    <div class="card">Vishyahoo Platform</div>
+    <div class="card">Universal IoT Controller</div>
+    <div class="card">Chatrixa Chat App</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <h2>Contact</h2>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScVrVlCeOBzcRmGOYg6nRA_vR9CaW7FvAXvJ6yv-gxFCEKXUg/viewform?embedded=true"></iframe>
+</section>
+
+<footer>
+  <p>© 2025 Vishal | GenAI Freelancer</p>
+</footer>
+
+<!-- MATRIX SCRIPT -->
+<script>
+const canvas=document.getElementById("matrix");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+const letters="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%^&*()";
+const fontSize=14;
+const columns=canvas.width/fontSize;
+const drops=[];
+for(let x=0;x<columns;x++)drops[x]=1;
+function draw(){
+  ctx.fillStyle="rgba(0,0,0,0.08)";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="#00ff9c";
+  ctx.font=fontSize+"px monospace";
+  for(let i=0;i<drops.length;i++){
+    const text=letters[Math.floor(Math.random()*letters.length)];
+    ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+    if(drops[i]*fontSize>canvas.height && Math.random()>0.975){
+      drops[i]=0;
+    }
+    drops[i]++;
+  }
+}
+setInterval(draw,35);
+window.onresize=()=>{
+  canvas.width=window.innerWidth;
+  canvas.height=window.innerHeight;
+}
+</script>
+
+</body>
+</html>
